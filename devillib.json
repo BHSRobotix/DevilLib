@@ -1,6 +1,6 @@
 {
   "name": "DevilLib",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "uuid": "0e2ee74e-fd78-4547-ac4d-a810b531664d",
   "mavenUrls": [
     "https://jitpack.io"
@@ -11,7 +11,7 @@
     {
       "groupId": "bhs.devilbotz",
       "artifactId": "DevilLib",
-      "version": "1.0.0"
+      "version": "0.1.0"
     }
   ],
   "jniDependencies": [],
