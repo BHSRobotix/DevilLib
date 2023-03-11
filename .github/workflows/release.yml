@@ -49,6 +49,18 @@ jobs:
           asset_name: DevilLib-${{ steps.getTag.outputs.tag }}.jar
           asset_content_type: application/java-archive
 
+      - name: Upload DevilLib Sources Jar
+        id: upload-release-asset-sources
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.getReleaseURL.outputs.uploadurl }}
+          asset_path: ./build/libs/DevilLib-${{ steps.getTag.outputs.tag }}-sources.jar
+          asset_name: DevilLib-${{ steps.getTag.outputs.tag }}-sources.jar
+          asset_content_type: application/java-archive
+
+
 
   generateJSON:
     # The build job (above) must complete successfully in order for this job to run.

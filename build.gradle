@@ -53,6 +53,9 @@ repositories {
 
     mavenLocal()
     mavenCentral()
+    maven {
+        url 'https://jitpack.io'
+    }
 }
 
 // Setup eclipse classpath settings, so the javadoc and sources are available in eclipse
@@ -78,6 +81,9 @@ dependencies {
     // (Both api and implementation keywords will have the library automatically downloaded with DevilLib)
     // compileOnly expects the dependency to be provided somewhere else. (Ex. by a main robot project)
     // compile means include in the output library jar (see below).
+
+    // Jitpack
+    implementation 'com.github.BHSRobotix:DevilLib:' + LibraryVersion
 }
 
 // Returns either the name of the current branch, or an empty string if no git repo is found.
