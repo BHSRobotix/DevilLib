@@ -81,8 +81,6 @@ dependencies {
     // compileOnly expects the dependency to be provided somewhere else. (Ex. by a main robot project)
     // compile means include in the output library jar (see below).
 
-    // Jitpack
-    implementation 'com.github.BHSRobotix:DevilLib' + ':' + LibraryVersion
 }
 
 // Returns either the name of the current branch, or an empty string if no git repo is found.
