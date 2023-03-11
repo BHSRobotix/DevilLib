@@ -75,7 +75,7 @@ dependencies {
     // Quick guide to keywords:
     // api is for libraries that are expected to be needed in the main robot project.
     // implementation is for libraries that will not be needed in the main robot project.
-    // (Both api and implementation keywords will have the library automatically downloaded with RobotLib)
+    // (Both api and implementation keywords will have the library automatically downloaded with DevilLib)
     // compileOnly expects the dependency to be provided somewhere else. (Ex. by a main robot project)
     // compile means include in the output library jar (see below).
 }
@@ -98,7 +98,7 @@ def hash = { ->
     return grgit.head().abbreviatedId
 }
 
-// Setting up RobotLib Jar File. In this case, adding version information to jar manifest.
+// Setting up DevilLib Jar File. In this case, adding version information to jar manifest.
 jar {
     manifest {
         attributes("LibraryVersion": LibraryVersion)	// from gradle.properties file.
