@@ -27,11 +27,6 @@ Use the wpilib extension to install the library.
 5. Build your project.
 6. You're done!
 
-### Libraries Needed to Build
-- [CTRE Phoenix](https://maven.ctr-electronics.com/release/com/ctre/phoenix/Phoenix5-frc2023-latest.json)
-- [NavX](https://raw.githubusercontent.com/rzblue/navx-frc/maven/navx_frc.json)
-- [REVLib](https://software-metadata.revrobotics.com/REVLib-2023.json)
-
 ## Releases and Changelog
 ### v0.1.0
 - Initial Release
