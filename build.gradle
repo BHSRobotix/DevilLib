@@ -120,7 +120,7 @@ jar {
 // When Javadoc is created (./gradlew.bat javadoc) it will be in this directory in the project folder.
 javadoc {
     destinationDir = file("doc")
-    title = "DevilLib"
+    title = "devillib"
     options.overview = "src/main/resources/overview.html"
     options.addBooleanOption "-no-module-directories", true
     options.addBooleanOption "-frames", true
@@ -149,7 +149,7 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/BHSRobotix/DevilLib")
             credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_USER")
                 password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
             }
         }

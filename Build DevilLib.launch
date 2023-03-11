@@ -20,5 +20,5 @@
         <listEntry value="PublishToMavenLocal"/>
     </listAttribute>
     <booleanAttribute key="use_gradle_distribution_from_import" value="false"/>
-    <stringAttribute key="working_dir" value="${workspace_loc:/DevilLib}"/>
+    <stringAttribute key="working_dir" value="${workspace_loc:/devillib}"/>
 </launchConfiguration>

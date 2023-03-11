@@ -1,4 +1,4 @@
-package bhs.devilbotz.DevilLib;
+package bhs.devilbotz.devillib;
 
 import edu.wpi.first.wpilibj.Filesystem;
 
