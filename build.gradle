@@ -118,7 +118,7 @@ jar {
 // When Javadoc is created (./gradlew.bat javadoc) it will be in this directory in the project folder.
 javadoc {
     destinationDir = file("doc")
-    title = "RobotLib"
+    title = "DevilLib"
     options.overview = "src/main/resources/overview.html"
     options.addBooleanOption "-no-module-directories", true
     options.addBooleanOption "-frames", true
@@ -141,7 +141,7 @@ artifacts {
 // The PubishToMavenLocal task is executed in the eclipse .launch files that run this build.
 publishing {
     publications {
-        robotLib(MavenPublication) {
+        devilLib(MavenPublication) {
             artifactId = 'DevilLib'
             from components.java
         }
