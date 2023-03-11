@@ -33,7 +33,6 @@ Use the wpilib extension to install the library.
 - [REVLib](https://software-metadata.revrobotics.com/REVLib-2023.json)
 
 ## Releases and Changelog
-***
 ### v0.1.0
 - Initial Release
 - Set up project structure
