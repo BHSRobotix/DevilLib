@@ -10,7 +10,7 @@
   "javaDependencies": [
     {
       "groupId": "bhs.devilbotz",
-      "artifactId": "DevilLib",
+      "artifactId": "devillib",
       "version": "0.1.0"
     }
   ],
