@@ -5,7 +5,7 @@
   "mavenUrls": [
     "https://jitpack.io"
   ],
-  "jsonUrl": "https://raw.githubusercontent.com/ORF-4450/RobotLib/master/robotlib.json",
+  "jsonUrl": "https://raw.githubusercontent.com/BHSRobotix/DevilLib/main/devillib.json",
   "fileName": "devillib.json",
   "javaDependencies": [
     {
