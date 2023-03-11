@@ -1,0 +1,19 @@
+{
+  "name": "DevilLib",
+  "version": "1.0.0",
+  "uuid": "0e2ee74e-fd78-4547-ac4d-a810b531664d",
+  "mavenUrls": [
+    "https://jitpack.io"
+  ],
+  "jsonUrl": "https://raw.githubusercontent.com/ORF-4450/RobotLib/master/robotlib.json",
+  "fileName": "devillib.json",
+  "javaDependencies": [
+    {
+      "groupId": "bhs.devilbotz",
+      "artifactId": "DevilLib",
+      "version": "1.0.0"
+    }
+  ],
+  "jniDependencies": [],
+  "cppDependencies": []
+}
