@@ -53,6 +53,8 @@ repositories {
 
     mavenLocal()
     mavenCentral()
+    jcenter()
+    maven { url "https://jitpack.io" }
 }
 
 // Setup eclipse classpath settings, so the javadoc and sources are available in eclipse
@@ -80,6 +82,7 @@ dependencies {
     // compile means include in the output library jar (see below).
 
     // Jitpack
+    implementation 'com.github.BHSRobotix:DevilLib' + ':' + LibraryVersion
 }
 
 // Returns either the name of the current branch, or an empty string if no git repo is found.
@@ -142,21 +145,12 @@ artifacts {
 // jars published to the local maven repository on this PC for consumption by robot projects on this PC.
 // The PubishToMavenLocal task is executed in the eclipse .launch files that run this build.
 
-// Publish to github packages
+// Publish to jitpack
 publishing {
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/BHSRobotix/DevilLib")
-            credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_USER")
-                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
-            }
-        }
-    }
     publications {
-        gpr(MavenPublication) {
-            from(components.java)
+        robotLib(MavenPublication) {
+            artifactId = 'RobotLib'
+            from components.java
         }
     }
 }
