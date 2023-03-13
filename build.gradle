@@ -40,7 +40,6 @@ deploy {
 }
 
 java {
-    withJavadocJar();
     withSourcesJar();
 }
 
@@ -60,7 +59,6 @@ repositories {
 // Setup eclipse classpath settings, so the javadoc and sources are available in eclipse
 eclipse {
     classpath {
-        downloadJavadoc = true
         downloadSources = true
     }
 }
@@ -118,14 +116,6 @@ jar {
 //    from sourceSets.main.allSource
 //}
 
-// When Javadoc is created (./gradlew.bat javadoc) it will be in this directory in the project folder.
-javadoc {
-    destinationDir = file("doc")
-    title = "devillib"
-    options.overview = "src/main/resources/overview.html"
-    options.addBooleanOption "-no-module-directories", true
-    options.addBooleanOption "-frames", true
-}
 
 // Create Javadoc Jar
 //task javadocJar(type: Jar, dependsOn: javadoc) {
@@ -136,19 +126,20 @@ javadoc {
 // Additional artifacts to publish for JitPack
 artifacts {
     archives sourcesJar
-    archives javadocJar
 }
 
 // Required with gradle 7.1.1. Configures PublishToMavenLocal task. This task is required to get our
 // jars published to the local maven repository on this PC for consumption by robot projects on this PC.
 // The PubishToMavenLocal task is executed in the eclipse .launch files that run this build.
 
-// Publish to jitpack
+// Publish to maven local
 publishing {
     publications {
-        robotLib(MavenPublication) {
-            artifactId = 'RobotLib'
+        mavenJava(MavenPublication) {
             from components.java
         }
+    }
+    repositories {
+        mavenLocal()
     }
 }
