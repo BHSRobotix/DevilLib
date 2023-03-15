@@ -30,6 +30,14 @@ Use the wpilib extension to install the library.
 ## Building Locally
 1. Append ``-Dlocal=true`` to the end of your gradle build
 2. Change the version tag in the target code to be ``local``
+3. Add ```repositories {
+    // local repo for devillib
+    maven {
+        name 'local'
+        url 'file:///' + System.getProperty('user.home') + '/.m2/repository'
+    }
+}``` to your build.gradle
+4. Deploy the library using ``./gradlew publishToMavenLocal -Dlocal=true``
 
 ## Releases and Changelog
 ### v0.1.0
