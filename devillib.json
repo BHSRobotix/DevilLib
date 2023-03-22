@@ -10,7 +10,7 @@
   "javaDependencies": [
     {
       "groupId": "com.github.BHSRobotix",
-      "artifactId": "DevilLib",
+      "artifactId": "devillib",
       "version": "v0.1.1"
     }
   ],
