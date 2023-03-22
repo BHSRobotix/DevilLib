@@ -42,6 +42,10 @@ repositories {
 5. Deploy the library using ``./gradlew publishToMavenLocal -Dlocal=true``
 
 ## Releases and Changelog
+### v0.1.2
+- Added Alerts
+- Added Timed Alerts
+
 ### v0.1.0
 - Initial Release
 - Set up project structure
