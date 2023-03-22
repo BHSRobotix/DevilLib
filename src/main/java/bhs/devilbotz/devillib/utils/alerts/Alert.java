@@ -56,9 +56,9 @@ public class Alert {
      * Creates a new Alert. If this is the first to be instantiated in its group, the appropriate
      * entries will be added to NetworkTables.
      *
-     * @param group Group identifier, also used as NetworkTables title
-     * @param text  Text to be displayed when the alert is active.
-     * @param type  Alert level specifying urgency.
+     * @param group          Group identifier, also used as NetworkTables title
+     * @param text           Text to be displayed when the alert is active.
+     * @param type           Alert level specifying urgency.
      * @param activeDuration Duration in seconds that the alert should be active for.
      */
     public Alert(String group, String text, AlertType type, double activeDuration) {
