@@ -27,6 +27,7 @@ public class Alert {
     private final AlertType type;
     private boolean active = false;
     private double activeStartTime = 0.0;
+    private double activeDuration = 0.0;
     private String text;
 
     /**
@@ -37,7 +38,18 @@ public class Alert {
      * @param type Alert level specifying urgency.
      */
     public Alert(String text, AlertType type) {
-        this("Alerts", text, type);
+        this("Alerts", text, type, -1);
+    }
+
+    /**
+     * Creates a new Alert in the default group - "Alerts". If this is the first to be instantiated,
+     * the appropriate entries will be added to NetworkTables.
+     *
+     * @param text Text to be displayed when the alert is active.
+     * @param type Alert level specifying urgency.
+     */
+    public Alert(String text, AlertType type, double activeDuration) {
+        this("Alerts", text, type, activeDuration);
     }
 
     /**
@@ -47,8 +59,9 @@ public class Alert {
      * @param group Group identifier, also used as NetworkTables title
      * @param text  Text to be displayed when the alert is active.
      * @param type  Alert level specifying urgency.
+     * @param activeDuration Duration in seconds that the alert should be active for.
      */
-    public Alert(String group, String text, AlertType type) {
+    public Alert(String group, String text, AlertType type, double activeDuration) {
         if (!groups.containsKey(group)) {
             groups.put(group, new SendableAlerts());
             SmartDashboard.putData(group, groups.get(group));
@@ -56,6 +69,19 @@ public class Alert {
 
         this.text = text;
         this.type = type;
+        this.activeDuration = activeDuration;
+
+        // Start a thread to automatically deactivate the alert after a certain amount of time
+        if (activeDuration > 0) {
+            new Thread(() -> {
+                try {
+                    Thread.sleep((long) (activeDuration * 1000));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                set(false);
+            }).start();
+        }
         groups.get(group).alerts.add(this);
     }
 
