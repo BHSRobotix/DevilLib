@@ -5,12 +5,12 @@
   "mavenUrls": [
     "https://jitpack.io"
   ],
-  "jsonUrl": "https://raw.githubusercontent.com/BHSRobotix/DevilLib/main/devillib.json",
+  "jsonUrl": "https://github.com/BHSRobotix/DevilLib/releases/download/v0.1.1/devillib.json",
   "fileName": "devillib.json",
   "javaDependencies": [
     {
       "groupId": "com.github.BHSRobotix",
-      "artifactId": "devillib",
+      "artifactId": "DevilLib",
       "version": "v0.1.1"
     }
   ],

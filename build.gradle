@@ -28,6 +28,7 @@ println("LibraryVersion=" + LibraryVersion + "; compile version=" + version)
 vendorJSON {
     fileName = jsonFileName
     version = LibraryVersion
+    jsonUrl = "https://github.com/BHSRobotix/DevilLib/releases/download/v" + LibraryVersion + "/devillib.json"
     addJavaArtifact(archivesGroup, archivesBaseName, "v" + LibraryVersion)
 }
 
