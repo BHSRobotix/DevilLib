@@ -136,8 +136,6 @@ $RECYCLE.BIN/
 
 ### Gradle ###
 .gradle
-/build/
-!/build/libs/NetworkAlerts.jar
 
 # Ignore Gradle GUI config
 gradle-app.setting
