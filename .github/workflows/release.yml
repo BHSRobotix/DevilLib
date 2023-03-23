@@ -128,9 +128,9 @@ jobs:
         run: './gradlew generateJar'
         working-directory: ./NetworkAlerts
 
-      - name: print working directory
-        run: pwd
-        working-directory: ./NetworkAlerts
+      - name: print directory and all files
+        run: ls -R
+
 
       - name: Commit NetworkAlerts.jar
         uses: EndBug/add-and-commit@v7.3.0
