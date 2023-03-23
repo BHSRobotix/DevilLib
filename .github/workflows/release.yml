@@ -84,7 +84,7 @@ jobs:
         uses: EndBug/add-and-commit@v7.3.0
         with:
           add: './devillib.json'
-          branch: 'master'
+          branch: 'main'
           message: 'Automated - Update devillib.json for release'
 
       - name: Get Release Upload URL
