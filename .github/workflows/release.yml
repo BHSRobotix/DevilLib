@@ -137,7 +137,7 @@ jobs:
         uses: EndBug/add-and-commit@v7.3.0
         with:
           add: './NetworkAlerts/build/libs/NetworkAlerts.jar'
-          branch: 'master'
+          branch: 'main'
           message: 'Automated - Update NetworkAlerts.jar for release'
 
       - name: Get Release Upload URL
