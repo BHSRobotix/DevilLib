@@ -130,12 +130,13 @@ jobs:
 
       - name: print directory and all files
         run: ls -R
+        working-directory: ./NetworkAlerts/build/libs
 
 
       - name: Commit NetworkAlerts.jar
         uses: EndBug/add-and-commit@v7.3.0
         with:
-          add: './NetworkAlerts/NetworkAlerts.jar'
+          add: './NetworkAlerts/build/libs/NetworkAlerts.jar'
           branch: 'master'
           message: 'Automated - Update NetworkAlerts.jar for release'
 
@@ -155,6 +156,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.getReleaseURL.outputs.uploadurl }}
-          asset_path: ./NetworkAlerts/NetworkAlerts.jar
+          asset_path: ./NetworkAlerts/build/libs/NetworkAlerts.jar
           asset_name: NetworkAlerts.jar
           asset_content_type: application/java-archive
