@@ -131,7 +131,7 @@ jobs:
       - name: Commit NetworkAlerts.jar
         uses: EndBug/add-and-commit@v7.3.0
         with:
-          add: './NetworkAlerts.jar'
+          add: './NetworkAlerts/NetworkAlerts.jar'
           branch: 'master'
           message: 'Automated - Update NetworkAlerts.jar for release'
 
