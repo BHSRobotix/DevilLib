@@ -80,11 +80,25 @@ jobs:
       - name: Generate devillib.json
         run: './gradlew vendorJSON'
 
+      - name: my-app-install token
+        id: my-app
+        uses: getsentry/action-github-app-token@v2
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Conventional Changelog Action
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: '${{ steps.my-app.outputs.token }}'
+          output-file: "false"
+
       - name: Commit devillib.json
         uses: EndBug/add-and-commit@v7.3.0
         with:
           add: './devillib.json'
-          branch: 'main'
+          branch: 'master'
           message: 'Automated - Update devillib.json for release'
 
       - name: Get Release Upload URL
@@ -106,56 +120,3 @@ jobs:
           asset_path: ./devillib.json
           asset_name: devillib.json
           asset_content_type: application/json
-          
-  generateNetworkAlertsJar:
-    # The build job (above) must complete successfully in order for this job to run.
-    needs: build
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout the repo
-        uses: actions/checkout@v2
-
-      - name: Set up JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
-
-      - name: Generate NetworkAlerts Jar
-        run: './gradlew generateJar'
-        working-directory: ./NetworkAlerts
-
-      - name: print directory and all files
-        run: ls -R
-        working-directory: ./NetworkAlerts/build/libs
-
-
-      - name: Commit NetworkAlerts.jar
-        uses: EndBug/add-and-commit@v7.3.0
-        with:
-          add: './NetworkAlerts/build/libs/NetworkAlerts.jar'
-          branch: 'main'
-          message: 'Automated - Update NetworkAlerts.jar for release'
-
-      - name: Get Release Upload URL
-        uses: actions/github-script@0.3.0
-        id: getReleaseURL
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            const core = require('@actions/core')
-            core.setOutput("uploadurl",context.payload.release.upload_url)
-
-      - name: Upload NetworkAlerts.jar to Release
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.getReleaseURL.outputs.uploadurl }}
-          asset_path: ./NetworkAlerts/build/libs/NetworkAlerts.jar
-          asset_name: NetworkAlerts.jar
-          asset_content_type: application/java-archive
