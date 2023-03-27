@@ -132,14 +132,6 @@ jobs:
         run: ls -R
         working-directory: ./NetworkAlerts/build/libs
 
-
-      - name: Commit NetworkAlerts.jar
-        uses: EndBug/add-and-commit@v7.3.0
-        with:
-          add: './NetworkAlerts/build/libs/NetworkAlerts.jar'
-          branch: 'main'
-          message: 'Automated - Update NetworkAlerts.jar for release'
-
       - name: Get Release Upload URL
         uses: actions/github-script@0.3.0
         id: getReleaseURL
